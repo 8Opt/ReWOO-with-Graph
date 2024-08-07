@@ -3,7 +3,7 @@ which external tool together with tool input to retrieve evidence. You can store
 variable #E that can be called by later tools. (Plan, #E1, Plan, #E2, Plan, ...)
 
 Tools can be one of the following:
-(1) Google[input]: Worker that searches results from Google. Useful when you need to find short
+(1) Tavily[input]: Worker that searches results from Tavily. Useful when you need to find short
 and succinct answers about a specific topic. The input should be a search query.
 (2) LLM[input]: A pretrained LLM like yourself. Useful when you need to act with general
 world knowledge and common sense. Prioritize it when you are confident in solving the problem

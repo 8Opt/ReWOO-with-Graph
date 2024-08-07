@@ -55,18 +55,19 @@ class ReWOOGraph:
     
     def get_solve(self, state: ReWOO):
         plan = ""
+
         for _plan, step_name, tool, tool_input in state["steps"]:
             _results = state["results"] or {}
             for k, v in _results.items():
                 tool_input = tool_input.replace(k, v)
                 step_name = step_name.replace(k, v)
             plan += f"Plan: {_plan}\n{step_name} = {tool}[{tool_input}]"
-        # prompt = solve_prompt.format(plan=plan, task=state["task"])
-        # result = model.invoke(prompt)
+
         result = self.solver.run(state={
             "plan": plan, 
             "task": state["task"]
         })
+
         return {"result": result.content}
         
     def _get_current_task(self, state: ReWOO):
@@ -82,13 +83,18 @@ class ReWOOGraph:
         _step = self._get_current_task(state)
         _, step_name, tool, tool_input = state["steps"][_step - 1]
         _results = state["results"] or {}
+
         for k, v in _results.items():
             tool_input = tool_input.replace(k, v)
-        if tool == "Google":
-            result = self.search_engine.run(tool_input)
-        elif tool == "LLM":
-            result = self.llm_engine.run(tool_input)
-        else:
+
+        try: 
+            match tool: 
+                case "Tavily": 
+                    result = self.search_engine.run(tool_input)
+                case "LLM": 
+                    result = self.llm_engine.run(tool_input)
+        except:
             raise ValueError
+        
         _results[step_name] = str(result)
         return {"results": _results}

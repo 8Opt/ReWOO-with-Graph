@@ -30,7 +30,7 @@ class LLMEngine(Node):
         return model
     
     def run(self, state):
-        return self.model.invoke(state)
+        return self.engine.invoke(state)
 
 class Workers: 
 
