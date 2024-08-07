@@ -1,0 +1,12 @@
+llm: 
+  provider: groq
+  settings: 
+    temperature: 1.
+    max_tokens: 128
+
+tools: 
+  search:
+    provider: tavily            # Details at: https://docs.tavily.com/docs/tavily-api/python-sdk
+    settings: 
+      max_results: 5
+      search_depth: 'basic'     # ['basic', 'advances']
