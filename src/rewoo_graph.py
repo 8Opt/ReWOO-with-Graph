@@ -8,6 +8,7 @@ from src.nodes import Planner, Solver, Workers
 
 class ReWOOGraph: 
     def __init__(self, config): 
+        super().__init__(config=config)
         self.planner = Planner(config=config['llm'])
         self.solver  = Solver(config=config['llm'])
 
@@ -33,10 +34,10 @@ class ReWOOGraph:
         graph.add_conditional_edges("tool", self._route)
         graph.add_edge(START, "plan")
 
-        app = graph.compile()
+        self.app = graph.compile()
 
-        return app
-
+        return self.app
+    
     def _route(self, state):
         _step = self._get_current_task(state)
         if _step is None:

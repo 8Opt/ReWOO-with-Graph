@@ -1,6 +1,7 @@
 llm: 
   provider: groq
   settings: 
+    model:  llama3-70b-8192
     temperature: 1.
     max_tokens: 128
 
@@ -10,3 +11,10 @@ tools:
     settings: 
       max_results: 5
       search_depth: 'basic'     # ['basic', 'advances']
+
+eval:
+  provider: gemini
+  settings: 
+    model: gemini-1.5-flash
+    temperature: 0
+    max_tokens: 16

@@ -4,7 +4,7 @@
 
 from langchain_core.prompts import ChatPromptTemplate
 
-from src.prompts import SOLVER_PROMPT
+from src.prompts.base import SOLVER_PROMPT
 from src.models import LanguageModel
 from src.nodes.base import Node
 
