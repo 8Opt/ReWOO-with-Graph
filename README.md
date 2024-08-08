@@ -9,9 +9,9 @@ This project aims to re-factor the implementation of the original [ReWOO](https:
 
 Why's ReWOO, you might ask? There are several factors that make ReWOO stands out: 
 
-1. Reduce token consumption: ReWOO claims that based on well-planned script of the Planner, the Worker will only capture vital and relevant information that feed the Solver later. 
-2. Reduce execution time: By well 
-3. Fine-tuning does not affect the whole system:
+1. Reduce token consumption.
+2. Reduce execution time.
+3. Fine-tuning does not affect the whole system
 
 ## Features
 
